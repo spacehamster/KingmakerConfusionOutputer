@@ -1,0 +1,10 @@
+{
+  "Id": "ConfusionFixMod",
+  "DisplayName": "ConfusionFixMod",
+  "Author": "CowWithHat",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.14.1",
+  "AssemblyName": "ConfusionFixMod.dll",
+  "HomePage": "",
+  "EntryMethod": "ConfusionFixMod.Main.Load"
+}
