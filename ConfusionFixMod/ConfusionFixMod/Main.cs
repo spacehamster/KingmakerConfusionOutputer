@@ -34,22 +34,26 @@ namespace ConfusionFixMod
 
         internal static UnityModManagerNet.UnityModManager.ModEntry.ModLogger logger;
         internal static Harmony12.HarmonyInstance harmony;
-
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             try
             {
+                Harmony12.HarmonyInstance.DEBUG = true;
                 logger = modEntry.Logger;
                 harmony = Harmony12.HarmonyInstance.Create(modEntry.Info.Id);
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
             catch (Exception ex)
             {
-                //DebugError(ex);
-                throw ex;
+                DebugError(ex);
             }
             return true;
 
+        }
+
+        internal static void DebugError(Exception ex)
+        {
+            if (logger != null) logger.Log(ex.ToString() + "\n" + ex.StackTrace);
         }
 
         public static T GetField<T>(object obj, string name)
